@@ -16,15 +16,19 @@
     <script type="module">
         import RainChart from "../drawRainChart.js"
         const rainChart = new RainChart()
-        d3.json("./data.json", function (d) { }).then(function (
-            data
-        ) {
+        const data = location.hash
 
-            rainChart.data(data)
-            rainChart.render()
-        });
+        rainChart.data(JSON.parse(decodeURI(data).slice(1)))
+        rainChart.render()
+        // d3.json("./data.json", function (d) { }).then(function (
+        //     data
+        // ) {
+        //
+        //     rainChart.data(data)
+        //     rainChart.render()
+        // });
     </script>
-    <canvas >
+    <canvas ></canvas>
 
 </body>
 
